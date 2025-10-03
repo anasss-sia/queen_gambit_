@@ -7,12 +7,4 @@ document.getElementById("moreBtn").addEventListener("click", function() {
     text.style.display = "none";
     this.textContent = "Показать больше";
   }
-const returnBtnContainer = document.querySelector('.return-btn-container');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) { 
-    returnBtnContainer.classList.add('show');
-  } else {
-    returnBtnContainer.classList.remove('show');
-  }
 });
