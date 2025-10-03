@@ -1,1 +1,0 @@
-# queen_gambit_
