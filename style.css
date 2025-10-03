@@ -103,14 +103,31 @@ button:hover {
 }
 
 .return-btn-container {
-  display: flex;
-  justify-content: center; 
-  margin: 40px 0;
+  position: fixed;
+  bottom: 30px;          
+  left: 50%;              
+  transform: translateX(-50%);
+  z-index: 1001;         
+  pointer-events: auto;
 }
 
 .return-btn-container button {
   padding: 12px 28px;
   font-size: 1.05rem;
+  background: #800020;
+  color: #f0e6d2;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+}
+
+.return-btn-container button:hover {
+  background: #f0e6d2;
+  color: #800020;
+  transform: scale(1.05) rotate(-2deg);
 }
 
 footer {
