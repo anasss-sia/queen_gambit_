@@ -37,17 +37,14 @@ nav a:hover {
 
 .block {
   padding: 4rem 2rem;
-  background: #1a1a1a;
+  background: #1a1a1a; 
   position: relative;
   margin: 2rem auto;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   max-width: 1000px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  border-top: 2px solid #333;
-  border-bottom: 2px solid #333;
-  clip-path: polygon(
-    0% 0%, 100% 0%, 100% 95%, 98% 100%, 2% 100%, 0% 95%
-  ); 
+  border-left: 4px solid #800020;
+  border-right: 4px solid #800020;
 }
 
 h1, h2 {
