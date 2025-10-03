@@ -5,78 +5,95 @@ body {
   background-color: #0d0d0d;
   color: #f0e6d2;
   line-height: 1.6;
+  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
 
 header {
   background: #1a1a1a;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
 nav a {
   color: #f0e6d2;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  font-weight: bold;
 }
 
 nav a:hover {
-  color: #d4af37; /* золотистый акцент */
+  color: #800020; /* бордовый акцент */
+  transform: scale(1.1);
 }
 
 .block {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   border-bottom: 1px solid #333;
+  background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
 }
 
 h1, h2 {
   font-family: "Times New Roman", serif;
-  color: #d4af37;
+  text-transform: uppercase;
+  color: #800020; /* бордовый акцент */
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 img {
   max-width: 100%;
-  border: 2px solid #d4af37;
   margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
 }
 
 /* Кнопка */
 button {
-  background: #1a1a1a;
+  background: #800020;
   color: #f0e6d2;
-  border: 1px solid #d4af37;
-  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50%;
+  padding: 1rem 2rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 button:hover {
-  background: #d4af37;
-  color: #0d0d0d;
+  background: #f0e6d2;
+  color: #800020;
+  transform: scale(1.15) rotate(-3deg);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   background: #1a1a1a;
   font-size: 0.9rem;
+  color: #f0e6d2;
+  letter-spacing: 1px;
 }
 
 /* ----- Адаптивность ----- */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
+    gap: 1rem;
   }
   .block {
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
   }
 }
 
