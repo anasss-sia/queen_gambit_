@@ -6,6 +6,7 @@ body {
   line-height: 1.6;
   background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 50px 50px;
+  overflow-x: hidden;
 }
 
 header {
@@ -13,6 +14,23 @@ header {
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #800020,
+    #800020 4px,
+    #f0e6d2 4px,
+    #f0e6d2 8px
+  );
 }
 
 nav ul {
@@ -21,6 +39,7 @@ nav ul {
   display: flex;
   gap: 2rem;
   justify-content: center;
+  position: relative;
 }
 
 nav a {
@@ -28,51 +47,149 @@ nav a {
   text-decoration: none;
   transition: color 0.3s, transform 0.3s;
   font-weight: bold;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #800020;
+  transition: width 0.3s;
 }
 
 nav a:hover {
-  color: #800020; 
+  color: #800020;
   transform: scale(1.1);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 .block {
   padding: 4rem 2rem;
   border-bottom: 1px solid #333;
   background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #800020;
+  border-right: 4px solid #800020;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: slidePattern 20s linear infinite;
+  pointer-events: none;
+}
+
+.block::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background: rgba(128,0,32,0.2);
+  border-radius: 50%;
+  animation: floatCircle 6s ease-in-out infinite;
 }
 
 h1, h2 {
-  font-family: "Times New Roman", serif;
+  font-family: "URW Chancery L", cursive;
   text-transform: uppercase;
   color: #800020;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
 }
+
+h1::before, h2::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: #800020;
+  border-radius: 2px;
+}
+
 
 img {
   max-width: 100%;
   margin-top: 1rem;
   border-radius: 8px;
   box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+  border: 2px dashed rgba(128,0,32,0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
 }
+
 
 button {
   background: #800020;
   color: #f0e6d2;
   border: none;
-  border-radius: 50%;
-  padding: 1rem 2rem;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.4s ease;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover::after {
+  width: 200%;
+  height: 500%;
 }
 
 button:hover {
   background: #f0e6d2;
   color: #800020;
-  transform: scale(1.15) rotate(-3deg);
+  transform: scale(1.05) rotate(-2deg);
 }
+
 
 footer {
   text-align: center;
@@ -81,6 +198,38 @@ footer {
   font-size: 0.9rem;
   color: #f0e6d2;
   letter-spacing: 1px;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,#800020,
+    #800020 4px,
+    #f0e6d2 4px,
+    #f0e6d2 8px
+  );
+}
+
+
+@keyframes slidePattern {
+  0% { left: -100%; }
+  100% { left: 0; }
+}
+
+@keyframes floatCircle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
